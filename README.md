@@ -1,24 +1,15 @@
-# README
+This is an exclusive clubhouse where members can write embarrassing posts about non-members. Inside the clubhouse, members can see who the author of a post is but, outside, they can only see the story and wonder who wrote it.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#### Models:
+User
+name:string [presence, min: 4]
+email:string [presence, email_format]
+-----------------
+has_many posts
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Post
+title:string [presence]
+body:text [presence]
+user_id:integer [presence]
+-----------------
+belongs_to user

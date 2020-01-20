@@ -1,0 +1,43 @@
+
+<div class="flex items-center mx-4 my-2">
+  <div class="logo mr-4">
+    <%= image_tag 'logo.png', :alt => 'Logo', :class => 'w-24 h-24' %>
+  </div>
+  <div>
+    <h1 class="text-lg">Welcome To The Clubhouse | Registration</h1>
+  </div>
+</div>
+<%= form_for(@user, url: register_path) do |f| %>
+  <% if @user.errors.any? %>
+  <ul class="errors list-disc">
+    <% @user.errors.full_messages.each do |error| %>
+    <li class="text-red-500 mx-4"><%= error %></li>
+    <%end%>
+  </ul>
+  <%end%>
+  <div class="flex flex-col outline">
+    <div class="flex my-2 mx-4">
+      <%= f.label :name, class: 'w-1/6' %>
+      <%= f.text_field :name, class: 'w-1/2 border rounded' %>
+    </div>
+    
+    <div class="flex my-2 mx-4">
+      <%= f.label :email, class: 'w-1/6' %>
+      <%= f.email_field :email, class: 'w-1/2 border rounded' %>
+    </div>
+
+    <div class="flex my-2 mx-4">
+      <%= f.label :password, class: 'w-1/6' %>
+      <%= f.password_field :password, class: 'w-1/2 border rounded' %>
+    </div>
+
+    <div class="flex my-2 mx-4">
+      <%= f.label :password_confirmation, 'Confirmation',  class: 'w-1/6' %>
+      <%= f.password_field :password_confirmation, class: 'w-1/2 border rounded' %>
+    </div>
+    <div class="flex my-2 mx-4">
+      <%= f.submit "save", :class => 'px-4 py-1 cursor-pointer rounded bg-blue-500 text-white'  %>
+    </div>
+  </div>
+<%end%>
+  

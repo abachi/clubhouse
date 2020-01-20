@@ -1,0 +1,10 @@
+ <% if false %>
+  <% @posts.each do |post| %>
+    <h1 class="title"><%= post.title %></h1>
+    <p><%= post.text %></p>
+  <%end%>
+ <%else%>
+  <div class="my-12">
+    <h2 class="text-center text-xl">Only memebers can see the posts, you have to <%= link_to 'login', login_path, :class => 'underline' %>.</h2>
+  </div>
+ <%end%>

@@ -10,6 +10,9 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render 'layouts/header' %>
+    <div class="w-1/2 container mx-auto my-4">
+      <%= yield %>
+    </div>
   </body>
 </html>
