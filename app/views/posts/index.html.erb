@@ -1,7 +1,9 @@
- <% if false %>
+ <% if logged_in? %>
   <% @posts.each do |post| %>
-    <h1 class="title"><%= post.title %></h1>
-    <p><%= post.text %></p>
+  <div class="border rounded p-2 my-2">
+    <h1 class="title text-lg px-4 py-2 font-medium"><%= post.title %></h1>
+    <p class="text-base tracking-normal"><%= post.body %></p>
+  </div>
   <%end%>
  <%else%>
   <div class="my-12">

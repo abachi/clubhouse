@@ -11,11 +11,12 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      # authenticate the user and redirect user to the posts
-      @user.authenticate
-      rediect_to posts_path
+      # login the user and redirect to posts page
+      log_in @user
+      redirect_to posts_path
+    else
+      render 'new'
     end
-    render 'new'
   end
 
   private

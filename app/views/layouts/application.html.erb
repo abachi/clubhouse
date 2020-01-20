@@ -10,9 +10,17 @@
   </head>
 
   <body>
-    <%= render 'layouts/header' %>
-    <div class="w-1/2 container mx-auto my-4">
-      <%= yield %>
+    <div class="h-screen flex flex-col justify-between">
+      <%= render 'layouts/header' %>
+      <% if not flash.empty? %>
+      <div class="mx-auto w-3/4 my-4">
+        <h3 class="w-full text-center rounded py-2 px-4 bg-blue-300 text-blue-900"><%= flash[:notice] %></h3>
+      </div>
+      <%end%>
+      <div class="w-1/2 container mx-auto my-4">
+        <%= yield %>
+      </div>
+      <%= render 'layouts/footer' %>
     </div>
   </body>
 </html>

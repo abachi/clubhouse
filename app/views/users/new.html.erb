@@ -1,11 +1,6 @@
 
-<div class="flex items-center mx-4 my-2">
-  <div class="logo mr-4">
-    <%= image_tag 'logo.png', :alt => 'Logo', :class => 'w-24 h-24' %>
-  </div>
-  <div>
-    <h1 class="text-lg">Welcome To The Clubhouse | Registration</h1>
-  </div>
+<div class="flex items-center mx-4 mb-12">
+    <h1 class="text-xl">Welcome To The Clubhouse | Registration</h1>
 </div>
 <%= form_for(@user, url: register_path) do |f| %>
   <% if @user.errors.any? %>
