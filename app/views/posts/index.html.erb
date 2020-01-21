@@ -1,8 +1,12 @@
  <% if logged_in? %>
   <% @posts.each do |post| %>
   <div class="border rounded p-2 my-2">
-    <h1 class="title text-lg px-4 py-2 font-medium"><%= post.title %></h1>
+    <h1 class="title text-lg px-4 py-2 font-medium">
+      <%= post.title %>
+      <span class="text-gray-300">#<%= post.id %></span>
+    </h1>
     <p class="text-base tracking-normal"><%= post.body %></p>
+    <p class="text-gray-400">posted in <%= distance_of_time_in_words(post.created_at, DateTime.now) %></p>
   </div>
   <%end%>
  <%else%>
