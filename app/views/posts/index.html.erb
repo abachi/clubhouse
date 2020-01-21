@@ -1,16 +1,14 @@
- <% if logged_in? %>
-  <% @posts.each do |post| %>
-  <div class="border rounded p-2 my-2">
-    <h1 class="title text-lg px-4 py-2 font-medium">
-      <%= post.title %>
-      <span class="text-gray-300">#<%= post.id %></span>
-    </h1>
-    <p class="text-base tracking-normal"><%= post.body %></p>
-    <p class="text-gray-400">posted in <%= distance_of_time_in_words(post.created_at, DateTime.now) %></p>
-  </div>
-  <%end%>
- <%else%>
-  <div class="my-12">
-    <h2 class="text-center text-xl">Only memebers can see the posts, you have to <%= link_to 'login', login_path, :class => 'underline' %>.</h2>
-  </div>
- <%end%>
+<% @posts.each do |post| %>
+<div class="border rounded p-2 my-2">
+  <h1 class="title text-lg px-4 py-2 font-medium">
+    <%= post.title %>
+    <span class="text-gray-300">#<%= post.id %></span>
+  </h1>
+  <p class="text-base tracking-normal"><%= post.body %></p>
+  <p class="text-gray-400">posted in <%= distance_of_time_in_words(post.created_at, DateTime.now) %>
+    <% if logged_in? %>
+      by <%= post.user.name %>
+    <%end%>
+  </p>
+</div>
+<%end%>
